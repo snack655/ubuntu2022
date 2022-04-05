@@ -24,7 +24,7 @@ int main() {
 			max = size;
 			copy(regstr, line);
 		}
-		printf("size=%d\n" regstr);
+		printf("size=%d\n", regstr);
 	}
 	// 정상 종료 일 때는 0을 리턴한다.
 	return 0;
