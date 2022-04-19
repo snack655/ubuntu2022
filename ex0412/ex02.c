@@ -5,6 +5,8 @@
 #include <sys/stat.h>
 #define BUFFSIZE 512
 
+
+
 void myread(char cary[]) {
 	printf("cary = %d\n", cary);
 	cary[0] = 'a';
