@@ -16,7 +16,7 @@ int main() {
     STUDENT student;
     char c;
     if (fd1 == -1) {
-        printf(file open fail);
+        printf("file open fail");
     }
     do {
         printf("몇번째 학생을 검색 하시겠습니까?");
@@ -24,9 +24,11 @@ int main() {
         lseek(fd1, student.id * sizeof(student), SEEK_SET);
         if (read(fd1, &student, sizeof(student)) > 0 && student.id != 0) {
             printf("학번 %d 이름 %s 점수 %d\n", student.id, student.name, student.score);
+        } else {
+            printf("학생이 없습니다..");
         }
         printf("계속 하시겠습니까?(Y/N) : ");
         getchar();
         scanf("%c", &c);
-    } while (c == 'Y');
+    } while (c == 'Y' || c == 'y');
 }

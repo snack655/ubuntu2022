@@ -24,7 +24,7 @@ int main() {
     while (scanf("%d %s %d", &student.id, student.name, &student.score) == 3) {
         // 3개 입력 했으면
 
-        lseek(fd1, student.id * sizeof(student), SEEK_SET);
+        lseek(fd1, student.id * sizeof(student), SEEK_SET); // 파일의 위치이동
         write(fd1, &student, sizeof(student));
     }
     close(fd1);
