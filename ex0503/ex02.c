@@ -6,6 +6,12 @@
 #include <string.h>
 
 int main(int argc, char **argv) {
+
+    /*
+        읽고 싶은 폴더명 입력하세요
+        ls linuxClass
+    */
+
     // 디렉토리 엔트리
     DIR *dp;
     // 디렉토리, 파일 담는 곳
