@@ -10,6 +10,7 @@
 #define START_COST 1000
 
 struct book {
+    int idx;
     int cost;
     char name[MAX];
     int viewCount;

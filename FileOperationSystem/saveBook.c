@@ -33,18 +33,17 @@ int main(int argc, char **argv) {
         } else {
             exit(2);
         }
-        
     }
 
     // 입력 받은 후 파일에 값 입력
+    printf("\n 번호 0 입력 시 종료\n");
     while (1) {
-        printf("cost 0 입력 시 종료\n");
-        printf("%-7s %-7s %-5s\n", "가격", "책", "조회수");
-        scanf("%d %s %d", &book.cost, book.name, &book.viewCount);
-        if(book.cost == 0) {
+        printf("%-7s %-7s %-7s %-5s\n", "번호", "가격", "책", "조회수");
+        scanf("%d %d %s %d", &book.idx, &book.cost, book.name, &book.viewCount);
+        if(book.idx == 0) {
             break;
         }
-        lseek(fd, book.cost * sizeof(book), SEEK_SET);
+        lseek(fd, book.idx * sizeof(book), SEEK_SET);
         write(fd, &book, sizeof(book));
     }
     close(fd);
