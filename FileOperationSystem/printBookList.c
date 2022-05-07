@@ -31,7 +31,7 @@ int main(int argc, char **argv) {
 
     lseek(fd, sizeof(book), SEEK_SET);
     while(read(fd, &book, sizeof(book)) > 0) {
-        if (book.idx == 0) 
+        if (book.cost == 0) 
             continue;
         printf("번호 : %d, 가격 : %d, 이름 : %s, 조회수 : %d\n", book.idx, book.cost, book.name, book.viewCount);
     }

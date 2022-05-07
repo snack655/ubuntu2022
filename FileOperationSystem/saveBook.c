@@ -36,12 +36,15 @@ int main(int argc, char **argv) {
     }
 
     // 입력 받은 후 파일에 값 입력
-    printf("\n 번호 0 입력 시 종료\n");
+    printf("\n 번호, 가격 0 입력 시 종료\n");
     while (1) {
         printf("%-7s %-7s %-7s %-5s\n", "번호", "가격", "책", "조회수");
         scanf("%d %d %s %d", &book.idx, &book.cost, book.name, &book.viewCount);
-        if(book.idx == 0) {
+        if(book.idx == 0 && book.cost == 0) {
             break;
+        } else if (book.idx == 0 || book.cost == 0) {
+            printf("다시 입력해주세요!\n");
+            continue;
         }
         lseek(fd, book.idx * sizeof(book), SEEK_SET);
         write(fd, &book, sizeof(book));
