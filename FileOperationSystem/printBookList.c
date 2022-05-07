@@ -4,13 +4,16 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <string.h>
+#pragma warning(disable :4996)
 #include "book.h"
+
+#define MAX_LEN 1024
+
 
 int main(int argc, char **argv) {
 
-    FILE *fd;
+    int fd;
     int c;
-    char buf[1024];
     struct book book;
 
     // 실행법이 틀렸다는 것을 알려주는 기능
@@ -19,14 +22,21 @@ int main(int argc, char **argv) {
         exit(1);
     }
     fd = open(argv[1], O_RDONLY);
-    if (fd == NULL) {
+    if (fd == -1) {
         printf("파일 열기에 실패했습니다..\n");
         exit(1);
     }
 
-    printf("** 책 리스트 **\n\n");
-    fprintf(fd);
-    fclose(fd);
+    printf("\n********************* 책 리스트 *********************\n\n");
+
+    lseek(fd, sizeof(book), SEEK_SET);
+    while(read(fd, &book, sizeof(book)) > 0) {
+        if (book.idx == 0) 
+            continue;
+        printf("번호 : %d, 가격 : %d, 이름 : %s, 조회수 : %d\n", book.idx, book.cost, book.name, book.viewCount);
+    }
+
+    printf("\n********************************************************\n\n");
     return 0;
 }
 
