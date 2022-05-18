@@ -15,3 +15,4 @@ struct book {
     char name[MAX];
     int viewCount;
 };
+
