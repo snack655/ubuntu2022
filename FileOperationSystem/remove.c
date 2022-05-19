@@ -17,7 +17,7 @@ int main() {
 
     dp = opendir(directoryname);
     if (dp == NULL) {
-        perror("명령어가 없습니다.");
+        perror("디텍토리가 없습니다.");
         exit(0);
     }
     while ( (d = readdir(dp)) != NULL) {
