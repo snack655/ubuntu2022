@@ -9,7 +9,7 @@
 #define MAX 30
 #define START_COST 1000
 
-struct book {
+struct file {
     int idx;
     int cost;
     char name[MAX];
