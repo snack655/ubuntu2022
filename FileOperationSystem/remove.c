@@ -2,6 +2,7 @@
 #include <sys/stat.h>
 #include <dirent.h>
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -10,10 +11,10 @@ int main() {
     struct dirent *d;
     int i = 1;
     char rmFileName[100];
-
+    char currentCwd[512];
     char directoryname[512];
-    strcpy(directoryname, "/Users/choiminjae/공부/linuxClass/FileOperationSystem");
-    printf("이 폴더에서 삭제할 파일을 선택해주세요 : %s\n", directoryname);
+    printf("%s\n에서 삭제할 파일을 선택해주세요!", getcwd(currentCwd, 512));
+    strcpy(directoryname, currentCwd);
 
     dp = opendir(directoryname);
     if (dp == NULL) {
