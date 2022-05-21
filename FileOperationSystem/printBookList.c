@@ -4,7 +4,6 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <string.h>
-#pragma warning(disable :4996)
 #include "book.h"
 
 #define MAX_LEN 1024
