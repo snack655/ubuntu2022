@@ -36,9 +36,9 @@ int main() {
     scanf("%[^\n]", buff);
 
     lseek(fd, BUFF_SIZE, SEEK_SET);
-    write(fd, buff, BUFF_SIZE);
+    write(fd, buff, strlen(buff));
 
-    printf("내용이 입력되었습니다. : \n -> ");
+    printf("내용이 입력되었습니다. \n -> ");
     lseek(fd, BUFF_SIZE, SEEK_SET);
     read(fd, buff2, BUFF_SIZE);
     printf("%s", buff2);
