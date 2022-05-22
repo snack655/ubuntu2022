@@ -21,7 +21,7 @@ int main() {
         printf("생성할 폴더의 명을 입력해주세요 : ");
         scanf("%s", dirName);
 
-        if (mkdir(dirName, 0755) == 0) {
+        if (mkdir(dirName, 0777) == 0) {
             printf("%s\n에 폴더를 생성하였습니다.", getcwd(currentCwd, 512));
         } else {
            fprintf(stderr, "directory create error: %s\n", strerror(errno));
@@ -31,7 +31,7 @@ int main() {
         printf("생성할 폴더의 경로를 입력해주세요 : ");
         scanf("%s", dirName);
 
-        if (mkdir(dirName, 0755) == 0) {
+        if (mkdir(dirName, 0777) == 0) {
              printf("폴더 생성에 성공하였습니다.");
         } else {
             fprintf(stderr, "directory create error : %s\n", strerror(errno));
