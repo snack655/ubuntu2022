@@ -1,0 +1,6 @@
+  PID TTY           TIME CMD
+17713 ttys001    0:00.80 /bin/zsh -l
+17735 ttys001    0:00.00 /bin/zsh -l
+17760 ttys001    0:00.00 /bin/zsh -l
+17761 ttys001    0:00.00 /bin/zsh -l
+17763 ttys001    0:00.04 /Users/choiminjae/.cache/gitstatus/gitstatusd-darwin-arm64 -G v1.5.4 -s -1 -u -1 -d -1 -c -1 -m -1 -v FATAL -t 16
