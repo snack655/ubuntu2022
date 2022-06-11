@@ -13,30 +13,52 @@ int main() {
         scanf("%d", &command);
 
         int pid, status;
-        pid = fork();        
+        if (command == -1) {
+            break;
+        } else if (command == 1) {
 
-        if (pid == 0) {
-            printf(" child process pid = %d\n\n", getpid());
-            if (command == -1) {
-                break;
-            } else if (command == 1) {
+            pid = fork();
+            if (pid == 0) {
                 execl("/bin/ls", "ls", "-al", NULL);
-            } else if (command == 2) {
+            } else {
+                waitpid(pid, &status, 0);
+                printf("\n\n");
+            }
+        } else if (command == 2) {
+
+            pid = fork();
+            if (pid == 0) {
                 char message[1024];
                 printf("출력하실 메시지를 입력해주세요. : ");
                 scanf("%s", message);
                 execl("/bin/echo", "echo", message, NULL);
-            } else if (command == 3) {
+            } else {
+                waitpid(pid, &status, 0);
+                printf("\n\n");
+            }
+        
+        
+        } else if (command == 3) {
+
+            pid = fork();
+            if (pid == 0) {
                 execl("/bin/ps", "ps", NULL);
-            } else if (command == 4) {
+            } else {
+                waitpid(pid, &status, 0);
+                printf("\n\n");
+            }
+
+        } else if (command == 4) {
+
+            pid = fork();
+            if (pid == 0) {
                 execl("/bin/date", "date", NULL);
             } else {
-                printf("해당하는 명령어가 없습니다.\n\n");
+                waitpid(pid, &status, 0);
+                printf("\n\n");
             }
         } else {
-            int child = waitpid(pid, &status, 0);
-            printf("\nchild = %d\n", child);
-            printf("parent process pid = %d\n\n", getpid());
+            printf("해당하는 명령어가 없습니다.\n\n");
         }
     }
 }
